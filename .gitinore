@@ -170,3 +170,4 @@ src/approaches/classification/__pycache__/
 src/dataloaders/__pycache__/
 src/dataloaders/asc/__pycache__/
 src/pycontinual.egg-info/
+ **/__pycache__/
