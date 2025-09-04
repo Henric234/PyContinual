@@ -9,7 +9,7 @@ import random
 
 
 sys.path.append("./networks/base/")
-from my_transformers import MyBertModel
+from ..base.my_transformers import MyBertModel
 
 
 class Net(torch.nn.Module):

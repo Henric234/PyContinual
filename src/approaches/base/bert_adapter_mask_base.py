@@ -23,7 +23,7 @@ import functools
 import torch.nn as nn
 from copy import deepcopy
 sys.path.append("./approaches/")
-from contrastive_loss import SupConLoss,DistillKL
+from .contrastive_loss import SupConLoss,DistillKL
 
 
 #TODO: merge with bert_adapter_base.py

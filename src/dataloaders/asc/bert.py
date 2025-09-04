@@ -71,8 +71,8 @@ def get(logger=None,args=None):
     taskcla=[]
 
     # Others
-    f_name = 'asc_random'
-
+    f_name = 'src\\asc_random'
+    print(os.listdir(),os.curdir)
     with open(f_name,'r') as f_random_seq:
         random_sep = f_random_seq.readlines()[args.idrandom].split()
 

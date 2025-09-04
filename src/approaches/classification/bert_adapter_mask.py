@@ -23,8 +23,8 @@ import functools
 import torch.nn as nn
 from copy import deepcopy
 sys.path.append("./approaches/base/")
-from bert_adapter_mask_base import Appr as ApprBase
-from my_optimization import BertAdam
+from ..base.bert_adapter_mask_base import Appr as ApprBase
+from ..base.my_optimization import BertAdam
 
 
 

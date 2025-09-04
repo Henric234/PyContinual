@@ -20,7 +20,7 @@ import torch.nn.functional as F
 import nlp_data_utils as data_utils
 from copy import deepcopy
 sys.path.append("./approaches/")
-from contrastive_loss import SupConLoss, CRDLoss
+from src.approaches.base.contrastive_loss import SupConLoss, CRDLoss
 from buffer import Buffer as Buffer
 
 

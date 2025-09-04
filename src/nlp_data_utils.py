@@ -185,17 +185,17 @@ class DscProcessor(DataProcessor):
     def get_train_examples(self, data_dir, fn="train.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "train")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "train")
 
     def get_dev_examples(self, data_dir, fn="dev.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "dev")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "dev")
 
     def get_test_examples(self, data_dir, fn="test.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "test")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "test")
 
     def get_labels(self):
         return ['-1','1']
@@ -221,17 +221,17 @@ class AscProcessor(DataProcessor):
     def get_train_examples(self, data_dir, fn="train.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "train")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "train")
 
     def get_dev_examples(self, data_dir, fn="dev.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "dev")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "dev")
 
     def get_test_examples(self, data_dir, fn="test.json"):
         """See base class."""
         return self._create_examples(
-            self._read_json(os.path.join(data_dir, fn)), "test")
+            self._read_json(os.path.normpath(os.path.join(data_dir, fn))), "test")
 
     def get_labels(self):
         """See base class."""

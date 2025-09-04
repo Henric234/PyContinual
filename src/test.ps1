@@ -2,7 +2,7 @@ $env:TRANSFORMERS_CACHE = ".\model_cache"
 $env:HF_DATASETS_CACHE = ".\dataset_cache"
 
 foreach ($id in 0) {
-    python .\run.py `
+    python .\src\run.py `
         --bert_model 'bert-base-uncased' `
         --backbone bert_adapter `
         --baseline classic `

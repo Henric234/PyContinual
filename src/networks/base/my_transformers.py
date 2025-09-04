@@ -25,7 +25,7 @@ import torch
 import torch.utils.checkpoint
 from torch import nn
 from torch.nn import CrossEntropyLoss, MSELoss
-
+from transformers import BertConfig
 from transformers.activations import ACT2FN
 from transformers.file_utils import (
     ModelOutput,
@@ -51,7 +51,6 @@ from transformers.modeling_utils import (
     prune_linear_layer,
 )
 from transformers.utils import logging
-from transformers import BertConfig
 
 logger = logging.get_logger(__name__)
 
@@ -67,10 +66,18 @@ _TOKENIZER_FOR_DOC = "BertTokenizer"
 # Change log ------------------------------------
 
 import sys
-from transformers.models.bert.modeling_bert import BertModel,BertSelfOutput,BertSelfOutput,BertEncoder,BertOutput,BertLayer,BertAttention
-sys.path.append("./networks/base/")
-from adapters import BertAdapterMask,BertAdapter,BertAdapterUcl, BertAdapterOwm
 
+from transformers.models.bert.modeling_bert import (
+    BertAttention,
+    BertEncoder,
+    BertLayer,
+    BertModel,
+    BertOutput,
+    BertSelfOutput,
+)
+
+sys.path.append("./networks/base/")
+from .adapters import BertAdapter, BertAdapterMask, BertAdapterOwm, BertAdapterUcl
 
 
 class MyBertSelfOutput(BertSelfOutput):
@@ -78,11 +85,17 @@ class MyBertSelfOutput(BertSelfOutput):
         super().__init__(config)
 
         if args.use_imp:
-            from networks.base.adapters import BertAdapterCapsuleMaskImp as BertAdapterCapsuleMask
-            from networks.base.adapters import BertAdapterCapsuleImp as BertAdapterCapsule
+            from networks.base.adapters import (
+                BertAdapterCapsuleImp as BertAdapterCapsule,
+            )
+            from networks.base.adapters import (
+                BertAdapterCapsuleMaskImp as BertAdapterCapsuleMask,
+            )
         else:
-            from networks.base.adapters import BertAdapterCapsuleMask
-            from networks.base.adapters import BertAdapterCapsule
+            from networks.base.adapters import (
+                BertAdapterCapsule,
+                BertAdapterCapsuleMask,
+            )
 
 
         if args.apply_bert_attention_output:
@@ -303,11 +316,17 @@ class MyBertOutput(BertOutput):
         super().__init__(config)
 
         if args.use_imp:
-            from networks.base.adapters import BertAdapterCapsuleMaskImp as BertAdapterCapsuleMask
-            from networks.base.adapters import BertAdapterCapsuleImp as BertAdapterCapsule
+            from networks.base.adapters import (
+                BertAdapterCapsuleImp as BertAdapterCapsule,
+            )
+            from networks.base.adapters import (
+                BertAdapterCapsuleMaskImp as BertAdapterCapsuleMask,
+            )
         else:
-            from networks.base.adapters import BertAdapterCapsuleMask
-            from networks.base.adapters import BertAdapterCapsule
+            from networks.base.adapters import (
+                BertAdapterCapsule,
+                BertAdapterCapsuleMask,
+            )
 
 
         if args.apply_bert_output:
@@ -881,6 +900,7 @@ class MyBertModel(BertModel):
 
 
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple, Union
+
 
 def apply_chunking_to_forward(
     forward_fn: Callable[..., torch.Tensor], chunk_size: int, chunk_dim: int, *input_tensors,**kwargs

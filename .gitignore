@@ -172,3 +172,7 @@ src/dataloaders/asc/__pycache__/
 src/pycontinual.egg-info/
  **/__pycache__/
  */__pycache__/*
+src/model_cache/
+model_cache/
+data/
+dat/

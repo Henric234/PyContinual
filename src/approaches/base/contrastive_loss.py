@@ -3,7 +3,7 @@ from torch import nn
 import torch.nn.functional as F
 import sys
 sys.path.append("./approaches/")
-from memory import ContrastMemory
+from .memory import ContrastMemory
 from torch.nn.modules.loss import _Loss
 from torch import Tensor
 

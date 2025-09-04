@@ -7,7 +7,7 @@ import numpy as np
 import random
 import sys
 sys.path.append("./networks/base/")
-from bayes_layer import BayesianLinear, BayesianConv2D
+from .bayes_layer import BayesianLinear, BayesianConv2D
 
 
 class BertAdapter(nn.Module):
